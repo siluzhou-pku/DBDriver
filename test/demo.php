@@ -21,6 +21,6 @@ $config = [
 ];
 $db = new db($config);
 $sql = "select * from user";
-$res = $db->getRow($sql);
+$res = $db->getAll($sql);
 echo "<pre>";
 print_r($res);

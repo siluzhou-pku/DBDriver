@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9f07378-930c-44f1-9bba-7b410f0f4bca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dbinterface.php" afterPath="$PROJECT_DIR$/src/Dbinterface.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/db.php" afterPath="$PROJECT_DIR$/src/db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db.php" afterPath="$PROJECT_DIR$/src/db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/demo.php" afterPath="$PROJECT_DIR$/test/demo.php" />
     </list>
     <ignored path="DBDriver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,46 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="insert_book.php" pinned="false" current-in-tab="false">
-        <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/insert_book.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1290324">
-              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-              <folding>
-                <marker date="1214561854000" expanded="true" signature="815:908" placeholder="insert into books..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results.php" pinned="false" current-in-tab="false">
-        <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/results.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1214554632000" expanded="true" signature="695:761" placeholder="select * fro..books..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results_generic.php" pinned="false" current-in-tab="false">
-        <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/results_generic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-              <folding>
-                <marker date="1214566644000" expanded="true" signature="940:1006" placeholder="select * fro..books..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Dbinterface.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dbinterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.290323">
+            <state vertical-scroll-proportion="-11.67742">
               <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
               <folding>
                 <element signature="e#6#85#0#PHP" expanded="true" />
@@ -76,12 +38,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3426791">
+            <state vertical-scroll-proportion="-7.096774">
               <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/demo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5829493">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+              <folding>
+                <element signature="e#6#85#0#PHP" expanded="true" />
+                <marker date="1464088789053" expanded="true" signature="660:678" placeholder="select * fro..user..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,8 +64,8 @@
       <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/db.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.096774">
-              <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+            <state vertical-scroll-proportion="-2.8387096">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -107,8 +82,8 @@
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/Dbinterface.php" />
         <option value="$PROJECT_DIR$/db.php" />
-        <option value="$PROJECT_DIR$/test/demo.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/test/demo.php" />
         <option value="$PROJECT_DIR$/src/db.php" />
       </list>
     </option>
@@ -120,10 +95,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="171" />
-    <option name="y" value="161" />
-    <option name="width" value="1214" />
-    <option name="height" value="840" />
+    <option name="x" value="357" />
+    <option name="y" value="8" />
+    <option name="width" value="1243" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -198,8 +173,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,10 +227,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="171" y="161" width="1214" height="840" extended-state="0" />
+    <frame x="357" y="8" width="1243" height="1038" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20701168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15321924" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -316,6 +291,62 @@
     <entry file="file://$PROJECT_DIR$/src/Dbinterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding>
+            <element signature="e#6#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/insert_book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <marker date="1214561854000" expanded="true" signature="815:908" placeholder="insert into books..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/results.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1214554632000" expanded="true" signature="695:761" placeholder="select * fro..books..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/results_generic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <marker date="1214566644000" expanded="true" signature="940:1006" placeholder="select * fro..books..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dbinterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
@@ -325,7 +356,7 @@
     </entry>
     <entry file="file://F:/PHP学习/PHP+MySQL+Web_code/PHP和MySQL Web开发（原书第4版）—源代码/Chapter 11/insert_book.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1290324">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
           <folding>
             <marker date="1214561854000" expanded="true" signature="815:908" placeholder="insert into books..." />
@@ -370,7 +401,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dbinterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.290323">
+        <state vertical-scroll-proportion="-11.67742">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
@@ -378,30 +409,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.096774">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.096774">
-          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        <state vertical-scroll-proportion="-2.8387096">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/demo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3761194">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.5829493">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
-            <marker date="1464086590220" expanded="true" signature="660:678" placeholder="select * fro..user..." />
+            <marker date="1464088789053" expanded="true" signature="660:678" placeholder="select * fro..user..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3426791">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
