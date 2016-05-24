@@ -1,0 +1,22 @@
+{
+    "name": "lulu/db-driver",
+    "description": "dev",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "siluzhou",
+            "email": "1912317621@qq.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4",
+        "ext-mbstring" : "*"
+    },
+    "autoload":{
+        "files": ["src/db.php"],
+        "psr-4":{
+            "Lulu\\": "src"
+        }
+    }
+}

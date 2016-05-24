@@ -23,15 +23,16 @@ class db implements Dbinterface{
             echo $e->getMessage();
         }
     }
-
     public function query($sql = '')
     {
         $res = $this->_pdo->query($sql);
+        //返回一个PDOstatement对象
         return $res;
     }
     public function getAll($sql = '')
     {
         $res = $this->query($sql);
+        //fetchAll()从一个结果集中取得数据，然后放于关联数组中。
         $all = $res->fetchAll();
         return $all;
     }
@@ -39,8 +40,8 @@ class db implements Dbinterface{
     public function getRow($sql = '')
     {
         $res = $this->query($sql);
+        //fetch()获取数据存取为一个对象
         $row = $res->fetch();
-
         return $row;
     }
 
