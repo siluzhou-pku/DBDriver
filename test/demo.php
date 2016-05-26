@@ -6,7 +6,6 @@
  * Time: 18:40
  */
 
-namespace Lulu;
 include("../vendor/autoload.php");
 $config = [
     'hostname'      => '127.0.0.1',         //服务器地址
@@ -19,8 +18,8 @@ $config = [
     'quiet'         => 0,                   //安静模式 生产环境的
     'slowquery'     => 1,                   //对慢查询记录
 ];
-$db = new db($config);
-$sql = "select * from user";
-$res = $db->getAll($sql);
+$db = new Lulu\db\db($config);
+$sql = "select userId from user";
+$res = $db->getCol($sql);
 echo "<pre>";
 print_r($res);

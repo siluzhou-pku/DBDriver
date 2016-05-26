@@ -14,7 +14,6 @@
         "ext-mbstring" : "*"
     },
     "autoload":{
-        "files": ["src/db.php"],
         "psr-4":{
             "Lulu\\": "src"
         }
