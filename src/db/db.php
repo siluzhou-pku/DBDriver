@@ -26,6 +26,44 @@ class db implements Dbinterface{
             echo $e->getMessage();
         }
     }
+    public function create($sql='')
+    {
+        if($this->doSQL($sql)==TRUE) {
+            echo "建立成功";
+        } else
+            echo "建立失败";
+    }
+
+    public function insert($sql='')
+    {
+        $this->doSQL($sql);
+    }
+    function createRand(
+        $len,
+        $type)
+    {
+        $rand='';
+        if($type=='c')
+            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
+        else
+            $chars = '0123456789';
+        for($i=0;$i<$len;$i++) {
+            $rand .= $chars[ mt_rand(0, strlen($chars) - 1) ];
+        }
+        return $rand;
+    }
+    /*
+    |------------------------------------------
+    |随机在表格中插入数据
+    /输入： $count：插入数据条数，$tablename:插入表名，$type数组记录每一列数据类型，$len数组记录每一列数据长度
+    |------------------------------------------
+    */
+    public function insertRand($count)
+    {
+        for($i=0; $i<=$count; $i++) {
+
+        }
+    }
 
     private function doSQL($sql = '')
     {
