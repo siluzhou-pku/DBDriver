@@ -61,30 +61,36 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $col=array();
-       /* while(1)
-        {
+        while(1) {
             $row=$res->fetchColumn();
-            if($row===FALSE) {
+            if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
                 break;
             }
             else {
-                echo "count";
                 $col[]=$row;
             }
-        }*/
-        while(!(($row=$res->fetchColumn())===FALSE)) {
-            $col[]=$row;
         }
+        //虽然代码短，但是括号太多容易出错
+        /*while(!(($row=$res->fetchColumn())===FALSE)) {
+            $col[]=$row;
+        }*/
         return $col;
-
-
-
     }
+
     public function getMap($sql)
     {
         $res=$this->doSQL($sql);
-        $res->setFetchMode(\PDO::FETCH_ASSOC);
-        $map = $res->fetchAll();
+        $map=array();
+        while(1) {
+            $row=$res->fetch();
+            if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
+                break;
+            }
+            else {
+                $map[$row[0]]=$row[1];
+            }
+        }
+
         return $map;
 
     }

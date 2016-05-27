@@ -19,7 +19,7 @@ $config = [
     'slowquery'     => 1,                   //对慢查询记录
 ];
 $db = new Lulu\db\db($config);
-$sql = "select nickname from user";
-$res = $db->getCol($sql);
+$sql = "select userId, nickname from user";
+$res = $db->getMap($sql);
 echo "<pre>";
 print_r($res);
