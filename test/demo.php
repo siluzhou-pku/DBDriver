@@ -19,7 +19,7 @@ $config = [
     'slowquery'     => 1,                   //对慢查询记录
 ];
 $db = new Lulu\db\db($config);
-$sql = "select userId from user";
+$sql = "select gravatar from user";
 $res = $db->getCol($sql);
 echo "<pre>";
 print_r($res);

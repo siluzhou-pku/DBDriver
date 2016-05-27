@@ -60,8 +60,21 @@ class db implements Dbinterface{
     public function getCol($sql)
     {
         $res=$this->doSQL($sql);
-        $col=$res->fetchAll();
+        $col=array();
+        while(1)
+        {
+            $row=$res->fetchColumn();
+            if($row===FALSE) {
+                break;
+            }
+            else {
+                echo "count";
+                $col[]=$row;
+            }
+        }
         return $col;
+
+
 
     }
     public function getMap($sql)
