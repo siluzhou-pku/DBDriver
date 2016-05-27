@@ -61,7 +61,7 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $col=array();
-        while(1)
+       /* while(1)
         {
             $row=$res->fetchColumn();
             if($row===FALSE) {
@@ -71,6 +71,9 @@ class db implements Dbinterface{
                 echo "count";
                 $col[]=$row;
             }
+        }*/
+        while(!(($row=$res->fetchColumn())===FALSE)) {
+            $col[]=$row;
         }
         return $col;
 
