@@ -16,6 +16,16 @@ class db implements Dbinterface{
         $this->_config = $config;
 
     }
+    private function doSQL($sql = '')
+    {
+        $this->connect();
+        $timestart=microtime(TRUE);
+        $res = $this->_pdo->query($sql);
+        $timeend=microtime(TRUE);
+        $sql2="INSERT INTO log (action,actionTime) VALUES ("."\"".$sql."\" ,\"".(string)($timeend-$timestart)."\"".")";
+        $this->_pdo->query($sql2);
+        return  $res;
+    }
     public function connect()
     {
         $dsn ='mysql:host='.$this->_config['hostname'].';dbname='.$this->_config['database'];
@@ -28,12 +38,14 @@ class db implements Dbinterface{
     }
     public function create($sql='')
     {
-        $this->doSQL($sql);
+        $res=$this->doSQL($sql);
+        return $res;
     }
 
     public function insert($sql='')
     {
-        $this->doSQL($sql);
+        $res=$this->doSQL($sql);
+        return $res;
     }
     public function createRand(
         $len,
@@ -90,21 +102,9 @@ class db implements Dbinterface{
         }
     }
 
-    private function doSQL($sql = '')
-    {
-        $this->connect();
-        $timestart=microtime(TRUE);
-        $res = $this->_pdo->query($sql);
-        $timeend=microtime(TRUE);
-        $sql2="INSERT INTO log (action,actionTime) VALUES ("."\"".$sql."\" ,\"".(string)($timeend-$timestart)."\"".")";
-        $this->_pdo->query($sql2);
-        return  $res;
-    }
     public function query($sql = '')
     {
-        //结束对象资源：
-       // $this->disConnect();
-        //返回一个PDOstatement对象
+        //返回一个PDOstatement对象或者TRUE or False
         return $this->doSQL($sql);
     }
     public function getAll($sql = '')
@@ -172,6 +172,10 @@ class db implements Dbinterface{
     public function close()
     {
         $this->_pdo = null;
+    }
+    public function _destruct()
+    {
+
     }
 
 }

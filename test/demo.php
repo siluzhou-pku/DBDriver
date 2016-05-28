@@ -44,4 +44,44 @@ usleep(1000);
 
 $sql = "select truename from million where userId=799930 ";
 $res = $db->getOne($sql);
-echo "<pre>";
+
+$db->close();
+
+/*
+ * //新建一个有1000000组数据的随机数组
+$sql2="CREATE TABLE IF NOT EXISTS million (
+userId INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+login VARCHAR(32) NOT NULL,
+password VARCHAR(32) NOT NULL,
+email VARCHAR(64) DEFAULT NULL,
+mobile VARCHAR(64) DEFAULT NULL,
+accessToken VARCHAR(64) NOT NULL DEFAULT 'accessToken',
+createAt TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
+updateAt int(11) DEFAULT NULL,
+trueName VARCHAR(128) DEFAULT NULL,
+birthday VARCHAR(128) DEFAULT NULL,
+gender VARCHAR(128) DEFAULT NULL,
+signer VARCHAR(128) DEFAULT NULL,
+zone VARCHAR(128) DEFAULT NULL,
+addr VARCHAR(128) DEFAULT NULL,
+gravatar VARCHAR(128) DEFAULT NULL,
+height VARCHAR(16) DEFAULT NULL,
+active int(11) NOT NULL DEFAULT 0,
+sort int(11) NOT NULL DEFAULT 0,
+des VARCHAR(128) DEFAULT NULL
+)";
+$db->create($sql2);
+$len=[8,16,20,11,10,8,1,8,8,28,8,3,8];
+$type=['c','c','c','i','c','i','i','c','c','c','c','i','c'];
+$colname=['login','password','email','mobile','trueName','birthday','gender','signer','zone','addr','gravatar','height','des'];
+//$db->insertRand(1000000 ,'million',$colname,$type,$len);
+
+//新建log表
+$sql3="CREATE TABLE IF NOT EXISTS log(
+actionId INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+action VARCHAR(128) DEFAULT NULL,
+createAt TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
+actionTime VARCHAR(128) DEFAULT NULL
+)";
+$db->create($sql3);
+ */

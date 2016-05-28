@@ -1,95 +1,91 @@
-WISE
-=======
+# DBDriver
 
-Package `shampeak/wise` 为程序提供配置信息支持.
 
-要点
-------
+
+## 要点
 
 - Simple API
-- [RFC3986](http://tools.ietf.org/html/rfc3986) compliant
 - Composer ready, [PSR-2][] and [PSR-4][] compliant
-- Framework Agnostic
 - Fully documented
 - Demo
 
-文档
-------
 
-完整的文档地址 [www.phpleague.cn/wise](http://www.phpleague.cn/wise).
-
-系统需求
--------
+## 系统需求
 
 You need:
 
-- **PHP >= 5.4.9** , but the latest stable version of PHP is recommended
+- **PHP >= 5.4** , but the latest stable version of PHP is recommended
 
-To use the library.
+## Dbinterface接口
 
-安装
--------
+- public function query($sql);
 
-使用composer安装 `shampeak/wise` .
+> 执行sql
+> 
+> select语句返回对象，其余语句返回true / false,
 
-```
-$ composer require shampeak/wise dev-master
-```
+- public function connect();    
 
-使用前
--------
+> 实例化PDO，建立数据库连接
 
-```
-include("../vendor/autoload.php");
-```
+- public function create($sql);    
+> 执行sql,建立表格
+> 
+> 返回true / false
 
+- public function insert($sql);
 
-使用
--------
+> 执行sql,插入数据
+> 
+> 返回true / false
+    
+- public function getAll($sql);
+> 执行sql
+> 
+> 以数组形式返回所有的结果
 
-```
-//初始化
-$wise = Sham\Wise\Wise::getInstance([
-    'ini' => [
-        'username'    => '',
-        'dbhost'        => '125.0.0.1',
-    ],
-    'file'=>[
-        'Config'    => 'Config/Config.php',
-        'db'        => 'Config/db.php',
-    ],
-]);
+- public function getRow($sql);    
+> 执行sql
+> 以数组形式返回一行结果集
+    
+- public function getCol($sql);
+> 执行sql，以数组形式返回一列结果
 
-//载入
-$wise->load('db2','Config/Config.php');
+- public function getMap($sql);   
+> 执行sql，以数组形式返回两列数据的映射
 
-//设置参数
-$wise->C('myinfo',[]);
-$wise->C('myinfo','123123123123');
+    
+- public function getOne($sql);
+> 执行sql，返回一个结果
 
-//调用2
-$md = $wise('myinfo');
+- public function close();
+> 关闭连接
 
+## db类
+使用Dbinterface接口，实现接口中指定的方法。
 
-//对象 db cache config input
-$wise->db;
-$wise->cache;
-$wise->config;
-$wise->input;
+- public function __construct($config = array())
 
+> 构造函数，初始化$config;
 
-```
+- public function_destruct()
 
-安全
--------
+> 析构函数
 
-如果你发现任何安全问题,请发EMAIL shampeak@sina.com 给我,不要用issue tracker.
+- public function insertRand($count,$tablename,    $colname,  $type, $len)
 
-许可协议
--------
+> 随机在表格中插入数据的函数，随机在表格中插入数据
+> 输入：
+> - $count：插入数据条数
+> - $tablename:插入表名
+> - $colname 每一项名字
+> - $type数组记录每一列数据类型
+> - $len数组记录每一列数据长度
 
-本系统采用 MIT 许可协议(MIT)。请参阅[License File](LICENSE)获取更多信息。
+-  public function createRand( $len,  $type)
 
-[PSR-2]: http://www.php-fig.org/psr/psr-2/
-[PSR-4]: http://www.php-fig.org/psr/psr-4/
-[PSR-7]: http://www.php-fig.org/psr/psr-7/
+> 产生随机数的函数，产生字符串/数字类型的，长度为len的随机数
+
+## 许可协议
+
+本系统采用 MIT 许可协议(MIT)
