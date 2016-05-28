@@ -28,23 +28,20 @@ class db implements Dbinterface{
     }
     public function create($sql='')
     {
-        if($this->doSQL($sql)==TRUE) {
-            echo "建立成功";
-        } else
-            echo "建立失败";
+        $this->doSQL($sql);
     }
 
     public function insert($sql='')
     {
         $this->doSQL($sql);
     }
-    function createRand(
+    public function createRand(
         $len,
         $type)
     {
         $rand='';
         if($type=='c')
-            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
+            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         else
             $chars = '0123456789';
         for($i=0;$i<$len;$i++) {
@@ -55,21 +52,52 @@ class db implements Dbinterface{
     /*
     |------------------------------------------
     |随机在表格中插入数据
-    /输入： $count：插入数据条数，$tablename:插入表名，$type数组记录每一列数据类型，$len数组记录每一列数据长度
+    /输入： $count：插入数据条数，$tablename:插入表名，$colname 每一项名字，$type数组记录每一列数据类型，$len数组记录每一列数据长度
     |------------------------------------------
     */
-    public function insertRand($count)
+    public function insertRand(
+        $count,
+        $tablename,
+        $colname,
+        $type,
+        $len)
     {
-        for($i=0; $i<=$count; $i++) {
+        $t_cou=count($type);
+        for($i=0; $i<$count; $i++) {
+            if( $i%1000 == 0)
+                echo $i." ";
+            $sql='';
+            $sql.="INSERT INTO ".$tablename." (";
+            $sql.=$colname[0];
+            for($j=1;$j<$t_cou;$j++)
+                $sql.=", ".$colname[$j];
+            $sql.=") VALUES (";
+            $rand=$this->createRand($len[0],$type[0]);
+            if($type[0]=='c')
+                $sql.="\"".$rand."\"";
+            else
+                $sql.=$rand;
+            for($j=1;$j<$t_cou;$j++) {
+                $rand=$this->createRand($len[$j],$type[$j]);
+                if($type[$j]=='c')
+                    $sql.=", \"".$rand."\"";
+                else
+                    $sql.=", ".$rand;
+            }
+            $sql.=")";
 
+            $this->insert($sql);
         }
     }
 
     private function doSQL($sql = '')
     {
         $this->connect();
-        //marktme
+        $timestart=microtime(TRUE);
         $res = $this->_pdo->query($sql);
+        $timeend=microtime(TRUE);
+        $sql2="INSERT INTO log (action,actionTime) VALUES ("."\"".$sql."\" ,\"".(string)($timeend-$timestart)."\"".")";
+        $this->_pdo->query($sql2);
         return  $res;
     }
     public function query($sql = '')
