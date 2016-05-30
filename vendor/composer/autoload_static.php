@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit605457fd25e5db5a0c9aa52bc1f61607
 {
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'L' => 
         array (
             'Lulu\\' => 5,
@@ -14,9 +18,23 @@ class ComposerStaticInit605457fd25e5db5a0c9aa52bc1f61607
     );
 
     public static $prefixDirsPsr4 = array (
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
         'Lulu\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Psr\\Log\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/psr/log',
+            ),
         ),
     );
 
@@ -25,6 +43,7 @@ class ComposerStaticInit605457fd25e5db5a0c9aa52bc1f61607
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit605457fd25e5db5a0c9aa52bc1f61607::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit605457fd25e5db5a0c9aa52bc1f61607::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit605457fd25e5db5a0c9aa52bc1f61607::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

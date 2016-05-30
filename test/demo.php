@@ -29,10 +29,10 @@ $res = $db->getAll($sql);
 usleep(1000);
 */
 
-$sql = "select login,password from million where userId<100000";
-$res = $db->getMap($sql);
-//echo "<pre>";
-//print_r($res);
+$sql = "select password from million where userId<10";
+$res = $db->getCol($sql);
+echo "<pre>";
+print_r($res);
 
 usleep(1000);
 

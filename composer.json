@@ -11,7 +11,11 @@
     ],
     "require": {
         "php" : ">=5.4",
-        "ext-mbstring" : "*"
+
+
+
+        "ext-mbstring" : "*",
+        "monolog/monolog": "~1.7"
     },
     "autoload":{
         "psr-4":{

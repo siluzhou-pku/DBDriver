@@ -76,7 +76,8 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $col=array();
-        //$res->setFetchMode(\PDO::FETCH_ASSOC);
+       // $res->setFetchMode(\PDO::FETCH_ASSOC);
+
         //$col=$res->fetchAll();
         while(1) {
             $row=$res->fetchColumn();
@@ -98,6 +99,9 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $map=array();
+       // $res->setFetchMode(\PDO::FETCH_ASSOC);
+        //$map=$res->fetchAll();
+        //
         while(1) {
             $row=$res->fetch();
             if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
