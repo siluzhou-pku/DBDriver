@@ -21,86 +21,35 @@ class db implements Dbinterface{
         $this->connect();
         $timestart=microtime(TRUE);
         $res = $this->_pdo->query($sql);
-        $timeend=microtime(TRUE);
-        $sql2="INSERT INTO log (action,actionTime) VALUES ("."\"".$sql."\" ,\"".(string)($timeend-$timestart)."\"".")";
-        $this->_pdo->query($sql2);
+        //日志
+        $this->querylog($timestart,$sql);
+
         return  $res;
     }
-    public function connect()
+    private function querylog(
+        $actiontime,$action
+    )
+    {
+        $timestart=$actiontime;
+        $timeend=microtime(TRUE);
+        $sql2="INSERT INTO log (action,actionTime) VALUES ("."\"".$action."\" ,\"".(string)($timeend-$timestart)."\"".")";
+        return $this->_pdo->query($sql2);
+    }
+    private function connect()
     {
         $dsn ='mysql:host='.$this->_config['hostname'].';dbname='.$this->_config['database'];
-        //实例化PDO，建立数据库连接
-        try{
-            $this->_pdo = new \PDO($dsn,$this->_config['username'],$this->_config['password'],array(\PDO::ATTR_PERSISTENT => $this->_config['pconnect']));
-        } catch(\Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-    public function create($sql='')
-    {
-        $res=$this->doSQL($sql);
-        return $res;
-    }
-
-    public function insert($sql='')
-    {
-        $res=$this->doSQL($sql);
-        return $res;
-    }
-    public function createRand(
-        $len,
-        $type)
-    {
-        $rand='';
-        if($type=='c')
-            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        else
-            $chars = '0123456789';
-        for($i=0;$i<$len;$i++) {
-            $rand .= $chars[ mt_rand(0, strlen($chars) - 1) ];
-        }
-        return $rand;
-    }
-    /*
-    |------------------------------------------
-    |随机在表格中插入数据
-    /输入： $count：插入数据条数，$tablename:插入表名，$colname 每一项名字，$type数组记录每一列数据类型，$len数组记录每一列数据长度
-    |------------------------------------------
-    */
-    public function insertRand(
-        $count,
-        $tablename,
-        $colname,
-        $type,
-        $len)
-    {
-        $t_cou=count($type);
-        for($i=0; $i<$count; $i++) {
-            if( $i%1000 == 0)
-                echo $i." ";
-            $sql='';
-            $sql.="INSERT INTO ".$tablename." (";
-            $sql.=$colname[0];
-            for($j=1;$j<$t_cou;$j++)
-                $sql.=", ".$colname[$j];
-            $sql.=") VALUES (";
-            $rand=$this->createRand($len[0],$type[0]);
-            if($type[0]=='c')
-                $sql.="\"".$rand."\"";
-            else
-                $sql.=$rand;
-            for($j=1;$j<$t_cou;$j++) {
-                $rand=$this->createRand($len[$j],$type[$j]);
-                if($type[$j]=='c')
-                    $sql.=", \"".$rand."\"";
-                else
-                    $sql.=", ".$rand;
+        //实例化PDO，建立数据库连接，当已经连接时不需要再次连接
+        if($this->_pdo==null)
+        {
+            try{
+                $this->_pdo = new \PDO($dsn,$this->_config['username'],$this->_config['password'],array(\PDO::ATTR_PERSISTENT => $this->_config['pconnect']));
+            } catch(\Exception $e) {
+                echo $e->getMessage();
             }
-            $sql.=")";
-
-            $this->insert($sql);
         }
     }
+
+
 
     public function query($sql = '')
     {
@@ -127,6 +76,8 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $col=array();
+        //$res->setFetchMode(\PDO::FETCH_ASSOC);
+        //$col=$res->fetchAll();
         while(1) {
             $row=$res->fetchColumn();
             if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
