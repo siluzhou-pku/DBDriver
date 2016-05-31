@@ -15,6 +15,7 @@
 You need:
 
 - **PHP >= 5.4** , but the latest stable version of PHP is recommended
+- monolig ~1.7
 
 ## Install
 
