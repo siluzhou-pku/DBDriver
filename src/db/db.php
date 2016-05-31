@@ -7,45 +7,49 @@
  */
 
 namespace Lulu\db;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 class db implements Dbinterface{
 
     private $_config  = array();
     private $_pdo = null;
+    private $log=null;
     public function __construct($config = array()){
         $this->_config = $config;
-
     }
+
     private function doSQL($sql = '')
     {
-        $this->connect();
+        if ($this->_pdo==null) {
+            $this->connect();
+        }
         $timestart=microtime(TRUE);
         $res = $this->_pdo->query($sql);
         //日志
         $this->querylog($timestart,$sql);
-
         return  $res;
     }
     private function querylog(
         $actiontime,$action
     )
     {
+        if($this->log==null) {
+            $log = new Logger('log');
+            $log->pushHandler(new StreamHandler(dirname(dirname(__DIR__)).'/log/dblog.log', Logger::INFO));
+        }
         $timestart=$actiontime;
         $timeend=microtime(TRUE);
-        $sql2="INSERT INTO log (action,actionTime) VALUES ("."\"".$action."\" ,\"".(string)($timeend-$timestart)."\"".")";
-        return $this->_pdo->query($sql2);
+        $log->info($action,array("timestart"=>$timestart,"timeend"=>$timeend,"actiontime"=>$timeend-$timestart));
     }
     private function connect()
     {
         $dsn ='mysql:host='.$this->_config['hostname'].';dbname='.$this->_config['database'];
         //实例化PDO，建立数据库连接，当已经连接时不需要再次连接
-        if($this->_pdo==null)
-        {
-            try{
-                $this->_pdo = new \PDO($dsn,$this->_config['username'],$this->_config['password'],array(\PDO::ATTR_PERSISTENT => $this->_config['pconnect']));
-            } catch(\Exception $e) {
-                echo $e->getMessage();
-            }
+        try{
+            $this->_pdo = new \PDO($dsn,$this->_config['username'],$this->_config['password'],array(\PDO::ATTR_PERSISTENT => $this->_config['pconnect']));
+        } catch(\Exception $e) {
+            echo $e->getMessage();
         }
     }
 
@@ -76,10 +80,10 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $col=array();
-       // $res->setFetchMode(\PDO::FETCH_ASSOC);
+       $res->setFetchMode(\PDO::FETCH_NUM);
 
-        //$col=$res->fetchAll();
-        while(1) {
+        $col=$res->fetchAll();
+       /* while(1) {
             $row=$res->fetchColumn();
             if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
                 break;
@@ -87,7 +91,7 @@ class db implements Dbinterface{
             else {
                 $col[]=$row;
             }
-        }
+        }*/
         //虽然代码短，但是括号太多容易出错
         /*while(!(($row=$res->fetchColumn())===FALSE)) {
             $col[]=$row;
