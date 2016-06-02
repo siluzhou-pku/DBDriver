@@ -28,24 +28,24 @@ class db implements Dbinterface{
         $res = $this->_pdo->query($sql);
         $timeend=microtime(TRUE);
         //日志
-        $this->querylog($timestart,$sql);
+        $this->querylog($timeend-$timestart,$sql);
         return  $res;
     }
     private function querylog(
-        $actiontime,$action
+        $actiontime='',
+        $action=''
     )
     {
-
         if($this->log==null) {
             $log = new Logger('log');
-            $log->pushHandler(new StreamHandler(dirname(dirname(__DIR__)).'/log/dblog.log', Logger::INFO));
-        $log->info($action,array("timestart"=>$timestart,"timeend"=>$timeend,"actiontime"=>$timeend-$timestart));
+            $log->pushHandler(new StreamHandler(dirname(dirname(__DIR__)) . '/log/dblog.log', Logger::INFO));
+        }
+        $log->info($action,array("actiontime"=>$actiontime));
         return true;
     }
     private function connect()
     {
         $dsn ='mysql:host='.$this->_config['hostname'].';dbname='.$this->_config['database'];
-        //实例化PDO，建立数据库连接，当已经连接时不需要再次连接
         try{
             $this->_pdo = new \PDO($dsn,$this->_config['username'],$this->_config['password'],array(\PDO::ATTR_PERSISTENT => $this->_config['pconnect']));
         } catch(\Exception $e) {
@@ -58,13 +58,12 @@ class db implements Dbinterface{
 
     public function query($sql = '')
     {
-        //返回一个PDOstatement对象或者TRUE or False
         return $this->doSQL($sql);
     }
     public function getAll($sql = '')
     {
         $res = $this->doSQL($sql);
-        //fetchAll()从一个结果集中取得数据，然后放于关联数组中。
+        $res->setFetchMode(\PDO::FETCH_ASSOC);
         $all = $res->fetchAll();
         return $all;
     }
@@ -72,65 +71,37 @@ class db implements Dbinterface{
     public function getRow($sql = '')
     {
         $res = $this->doSQL($sql);
-        //fetch()获取数据存取为一个对象
+        $res->setFetchMode(\PDO::FETCH_ASSOC);
         $row = $res->fetch();
         return $row;
     }
 
-    public function getCol($sql)
+    public function getCol($sql='')
     {
         $res=$this->doSQL($sql);
-        $col=array();//不需要
-       $res->setFetchMode(\PDO::FETCH_ASSOC);
-
+        $res->setFetchMode(\PDO::FETCH_ASSOC);
         $col=$res->fetchAll(\PDO::FETCH_COLUMN);
-       /* while(1) {
-            $row=$res->fetchColumn();
-            if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
-                break;
-            }
-            else {
-                $col[]=$row;
-            }
-        }*/
-        //虽然代码短，但是括号太多容易出错
-        /*while(!(($row=$res->fetchColumn())===FALSE)) {
-            $col[]=$row;
-        }*/
         return $col;
     }
 
-    public function getMap($sql)
+    public function getMap($sql='')
     {
         $res=$this->doSQL($sql);
         $map=array();
-        $res->setFetchMode(\PDO::FETCH_ASSOC);
-        $key=$res->fetchAll(\PDO::FETCH_COLUMN);
-        $res=$this->doSQL($sql);
-        $value=$res->fetchAll(\PDO::FETCH_COLUMN,1);
-        $map=array_combine($key, $value);
-        //相同key的时候会出错，两次读取效率低
-      // $map=$res->fetchAll(\PDO::FETCH_UNIQUE | \PDO::FETCH_ASSOC);
-        //
-       /*while(1) {
-            $row=$res->fetch();
-            if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
-                break;
-            }
-            else {
-                $map[$row[0]]=$row[1];
-            }
-        }*/
-
+        $res->setFetchMode(\PDO::FETCH_NUM);
+        $res=$res->fetchAll();
+        for($i=0;$i<count($res,0);$i++)
+            $map[$res[$i][0]]=$res[$i][1];
         return $map;
 
     }
 
-    public function getOne($sql)
+    public function getOne($sql='')
     {
         $res = $this->doSQL($sql);
-        $one=$res->fetch();//fetchAll(\PDO::。。。;查询直接得到值
-        return array_shift($one);
+        $res->setFetchMode(\PDO::FETCH_ASSOC);
+        $one=$res->fetchColumn();//fetchAll(\PDO::。。。;查询直接得到值
+        return $one;
 
     }
 
