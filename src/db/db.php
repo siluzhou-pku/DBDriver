@@ -26,6 +26,7 @@ class db implements Dbinterface{
         }
         $timestart=microtime(TRUE);
         $res = $this->_pdo->query($sql);
+        $timeend=microtime(TRUE);
         //日志
         $this->querylog($timestart,$sql);
         return  $res;
@@ -34,13 +35,12 @@ class db implements Dbinterface{
         $actiontime,$action
     )
     {
+
         if($this->log==null) {
             $log = new Logger('log');
             $log->pushHandler(new StreamHandler(dirname(dirname(__DIR__)).'/log/dblog.log', Logger::INFO));
-        }
-        $timestart=$actiontime;
-        $timeend=microtime(TRUE);
         $log->info($action,array("timestart"=>$timestart,"timeend"=>$timeend,"actiontime"=>$timeend-$timestart));
+        return true;
     }
     private function connect()
     {
@@ -51,6 +51,7 @@ class db implements Dbinterface{
         } catch(\Exception $e) {
             echo $e->getMessage();
         }
+        return true;
     }
 
 
@@ -79,7 +80,7 @@ class db implements Dbinterface{
     public function getCol($sql)
     {
         $res=$this->doSQL($sql);
-        $col=array();
+        $col=array();//不需要
        $res->setFetchMode(\PDO::FETCH_ASSOC);
 
         $col=$res->fetchAll(\PDO::FETCH_COLUMN);
@@ -108,6 +109,7 @@ class db implements Dbinterface{
         $res=$this->doSQL($sql);
         $value=$res->fetchAll(\PDO::FETCH_COLUMN,1);
         $map=array_combine($key, $value);
+        //相同key的时候会出错，两次读取效率低
       // $map=$res->fetchAll(\PDO::FETCH_UNIQUE | \PDO::FETCH_ASSOC);
         //
        /*while(1) {
@@ -127,7 +129,7 @@ class db implements Dbinterface{
     public function getOne($sql)
     {
         $res = $this->doSQL($sql);
-        $one=$res->fetch();
+        $one=$res->fetch();//fetchAll(\PDO::。。。;查询直接得到值
         return array_shift($one);
 
     }
@@ -135,8 +137,9 @@ class db implements Dbinterface{
     public function close()
     {
         $this->_pdo = null;
+        return true;
     }
-    public function _destruct()
+    public function __destruct()
     {
 
     }
