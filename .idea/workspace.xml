@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9f07378-930c-44f1-9bba-7b410f0f4bca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/dblog.log" afterPath="$PROJECT_DIR$/log/dblog.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db/db.php" afterPath="$PROJECT_DIR$/src/db/db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/demo.php" afterPath="$PROJECT_DIR$/test/demo.php" />
     </list>
@@ -26,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="db.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/db/db.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.129032">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="84" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.17732207">
+              <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="109" selection-end-column="41" />
               <folding>
                 <element signature="e#6#85#0#PHP" expanded="true" />
                 <element signature="e#106#125#0#PHP" expanded="true" />
@@ -39,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dblog.log" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dblog.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log/dblog.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4604651">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="167" selection-start-line="53" selection-start-column="153" selection-end-line="53" selection-end-column="167" />
               <folding />
             </state>
           </provider>
@@ -52,16 +53,16 @@
       <file leaf-file-name="demo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/demo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.096775">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state vertical-scroll-proportion="-7.806452">
+              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
               <folding>
                 <element signature="e#6#85#0#PHP" expanded="false" />
                 <element signature="e#183#202#0#PHP" expanded="true" />
-                <marker date="1464682213031" expanded="true" signature="805:847" placeholder="select * fro..million..." />
-                <marker date="1464682213031" expanded="true" signature="886:936" placeholder="select login..million..." />
-                <marker date="1464682213031" expanded="true" signature="989:1033" placeholder="select passw..million..." />
-                <marker date="1464682213031" expanded="true" signature="1116:1176" placeholder="select login..million..." />
-                <marker date="1464682213031" expanded="true" signature="1231:1279" placeholder="select truen..million..." />
+                <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+                <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+                <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+                <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+                <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
               </folding>
             </state>
           </provider>
@@ -145,7 +146,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -180,6 +180,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,15 +240,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15714286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.029475983" sideWeight="0.5077381" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.029475983" sideWeight="0.49226192" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -258,6 +258,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.029475983" sideWeight="0.49226192" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -278,6 +279,33 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/demo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#6#85#0#PHP" expanded="false" />
+            <element signature="e#183#202#0#PHP" expanded="true" />
+            <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+            <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+            <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/demo2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="35" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+          <folding>
+            <marker date="1464657876076" expanded="true" signature="1253:1977" placeholder="CREATE TABLE..IF..." />
+            <marker date="1464657876076" expanded="true" signature="2384:2412" placeholder="INSERT INTO ${$tablename}..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -303,7 +331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -314,11 +341,11 @@
           <folding>
             <element signature="e#6#85#0#PHP" expanded="false" />
             <element signature="e#183#202#0#PHP" expanded="true" />
-            <marker date="1464682213031" expanded="true" signature="805:847" placeholder="select * fro..million..." />
-            <marker date="1464682213031" expanded="true" signature="886:936" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="989:1033" placeholder="select passw..million..." />
-            <marker date="1464682213031" expanded="true" signature="1116:1176" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="1231:1279" placeholder="select truen..million..." />
+            <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+            <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+            <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
           </folding>
         </state>
       </provider>
@@ -390,7 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -401,11 +427,11 @@
           <folding>
             <element signature="e#6#85#0#PHP" expanded="false" />
             <element signature="e#183#202#0#PHP" expanded="true" />
-            <marker date="1464682213031" expanded="true" signature="805:847" placeholder="select * fro..million..." />
-            <marker date="1464682213031" expanded="true" signature="886:936" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="989:1033" placeholder="select passw..million..." />
-            <marker date="1464682213031" expanded="true" signature="1116:1176" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="1231:1279" placeholder="select truen..million..." />
+            <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+            <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+            <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
           </folding>
         </state>
       </provider>
@@ -477,7 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -488,11 +513,11 @@
           <folding>
             <element signature="e#6#85#0#PHP" expanded="false" />
             <element signature="e#183#202#0#PHP" expanded="true" />
-            <marker date="1464682213031" expanded="true" signature="805:847" placeholder="select * fro..million..." />
-            <marker date="1464682213031" expanded="true" signature="886:936" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="989:1033" placeholder="select passw..million..." />
-            <marker date="1464682213031" expanded="true" signature="1116:1176" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="1231:1279" placeholder="select truen..million..." />
+            <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+            <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+            <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
           </folding>
         </state>
       </provider>
@@ -522,7 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -533,11 +557,11 @@
           <folding>
             <element signature="e#6#85#0#PHP" expanded="false" />
             <element signature="e#183#202#0#PHP" expanded="true" />
-            <marker date="1464682213031" expanded="true" signature="805:847" placeholder="select * fro..million..." />
-            <marker date="1464682213031" expanded="true" signature="886:936" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="989:1033" placeholder="select passw..million..." />
-            <marker date="1464682213031" expanded="true" signature="1116:1176" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="1231:1279" placeholder="select truen..million..." />
+            <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+            <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+            <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
           </folding>
         </state>
       </provider>
@@ -567,7 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,7 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29191798">
           <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,6 +699,14 @@
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/dblog.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="167" selection-start-line="53" selection-start-column="153" selection-end-line="53" selection-end-column="167" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,36 +723,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/demo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.096775">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="false" />
             <element signature="e#183#202#0#PHP" expanded="true" />
-            <marker date="1464682213031" expanded="true" signature="805:847" placeholder="select * fro..million..." />
-            <marker date="1464682213031" expanded="true" signature="886:936" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="989:1033" placeholder="select passw..million..." />
-            <marker date="1464682213031" expanded="true" signature="1116:1176" placeholder="select login..million..." />
-            <marker date="1464682213031" expanded="true" signature="1231:1279" placeholder="select truen..million..." />
+            <marker date="1464832484495" expanded="true" signature="807:849" placeholder="select * fro..million..." />
+            <marker date="1464832484495" expanded="true" signature="890:940" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1028:1072" placeholder="select passw..million..." />
+            <marker date="1464832484495" expanded="true" signature="1161:1221" placeholder="select login..million..." />
+            <marker date="1464832484495" expanded="true" signature="1276:1324" placeholder="select truen..million..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/db/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.129032">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="84" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.17732207">
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="109" selection-end-column="41" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
             <element signature="e#106#125#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/dblog.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4604651">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -80,9 +80,9 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $col=array();
-       $res->setFetchMode(\PDO::FETCH_NUM);
+       $res->setFetchMode(\PDO::FETCH_ASSOC);
 
-        $col=$res->fetchAll();
+        $col=$res->fetchAll(\PDO::FETCH_COLUMN);
        /* while(1) {
             $row=$res->fetchColumn();
             if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
@@ -103,10 +103,14 @@ class db implements Dbinterface{
     {
         $res=$this->doSQL($sql);
         $map=array();
-       // $res->setFetchMode(\PDO::FETCH_ASSOC);
-        //$map=$res->fetchAll();
+        $res->setFetchMode(\PDO::FETCH_ASSOC);
+        $key=$res->fetchAll(\PDO::FETCH_COLUMN);
+        $res=$this->doSQL($sql);
+        $value=$res->fetchAll(\PDO::FETCH_COLUMN,1);
+        $map=array_combine($key, $value);
+      // $map=$res->fetchAll(\PDO::FETCH_UNIQUE | \PDO::FETCH_ASSOC);
         //
-        while(1) {
+       /*while(1) {
             $row=$res->fetch();
             if($row===FALSE) {//判断放在内部而不是while中，因为如果某一项为NULL时会跳出WHILE，而row到达末尾时返回值为FALSE
                 break;
@@ -114,7 +118,7 @@ class db implements Dbinterface{
             else {
                 $map[$row[0]]=$row[1];
             }
-        }
+        }*/
 
         return $map;
 
