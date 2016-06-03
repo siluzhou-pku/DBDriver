@@ -22,19 +22,33 @@ $config = [
     'slowquery'     => 1,                   //对慢查询记录
 ];
 $db = new Lulu\db\db($config);
-$sql = "select * from million WHERE userId= 999999";
+
+$sql = "select cr from user WHERE userId=11";
+$res = $db->getAll($sql);
+echo "<pre>";
+
+
+
+$sql = "select login from user WHERE userId= 1";
 $res = $db->getRow($sql);
+echo "<pre>";
 
 
-$sql = "select login,truename from million where userId<10";
+
+$sql = "select createA from user where userId>10";
+$res = $db->getCol($sql);
+
+
+
+$sql = "select login,gende from user where userId>10";
 $res = $db->getMap($sql);
 
 
-$sql = "select truename from million where userId>=799930 ";
+$sql = "select loin from user where userId=13 ";
 $res = $db->getOne($sql);
-echo "<pre>";
+var_dump($res);
 print_r($res);
-
+/*
 //usleep(1000);
 
 //$sql = "select * from log where actionId<3";

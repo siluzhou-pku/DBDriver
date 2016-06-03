@@ -63,35 +63,54 @@ class db implements Dbinterface{
     public function getAll($sql = '')
     {
         $res = $this->doSQL($sql);
-        $res->setFetchMode(\PDO::FETCH_ASSOC);
-        $all = $res->fetchAll();
+        if($res===false) {
+            $all=array();
+        } else {
+            $res->setFetchMode(\PDO::FETCH_ASSOC);
+            $all = $res->fetchAll();
+        }
         return $all;
     }
 
     public function getRow($sql = '')
     {
         $res = $this->doSQL($sql);
-        $res->setFetchMode(\PDO::FETCH_ASSOC);
-        $row = $res->fetch();
+        if($res===false) {
+            $row=array();
+        } else {
+            $res->setFetchMode(\PDO::FETCH_ASSOC);
+            $row = $res->fetch();
+            if($row===false)
+                $row=array();
+        }
         return $row;
     }
 
     public function getCol($sql='')
     {
         $res=$this->doSQL($sql);
-        $res->setFetchMode(\PDO::FETCH_ASSOC);
-        $col=$res->fetchAll(\PDO::FETCH_COLUMN);
+        if($res===false) {
+            $col=array();
+        } else {
+            $res->setFetchMode(\PDO::FETCH_ASSOC);
+            $col=$res->fetchAll(\PDO::FETCH_COLUMN);
+        }
         return $col;
     }
 
     public function getMap($sql='')
     {
         $res=$this->doSQL($sql);
-        $map=array();
-        $res->setFetchMode(\PDO::FETCH_NUM);
-        $res=$res->fetchAll();
-        for($i=0;$i<count($res,0);$i++)
-            $map[$res[$i][0]]=$res[$i][1];
+        if($res==false) {
+            $map=array();
+        } else {
+            $map=array();
+            $res->setFetchMode(\PDO::FETCH_NUM);
+            $res=$res->fetchAll();
+            for($i=0;$i<count($res,0);$i++)
+                $map[$res[$i][0]]=$res[$i][1];
+        }
+
         return $map;
 
     }
@@ -99,8 +118,15 @@ class db implements Dbinterface{
     public function getOne($sql='')
     {
         $res = $this->doSQL($sql);
-        $res->setFetchMode(\PDO::FETCH_ASSOC);
-        $one=$res->fetchColumn();//fetchAll(\PDO::。。。;查询直接得到值
+        if($res===false){
+            $one=NULL;
+        } else {
+            $res->setFetchMode(\PDO::FETCH_ASSOC);
+            $one=$res->fetchColumn();//fetchAll(\PDO::。。。;查询直接得到值
+            if($one===false)
+                $one=NULL;
+        }
+
         return $one;
 
     }
