@@ -1,11 +1,10 @@
 # DBDriver
-
-
+DBDriver connects and manages database based on application programming interface (**API**) 
 
 ## Highlights
 
 - Simple API
-- Composer ready, [PSR-2][] and [PSR-4][] compliant
+- Composer ready, [PSR-2] and [PSR-4] compliant
 - Fully documented
 - Demo
 
@@ -15,13 +14,14 @@
 You need:
 
 - **PHP >= 5.4** , but the latest stable version of PHP is recommended
-- monolig ~1.7
+
+to use the library.
 
 ## Install
 
 Install Lulu\db using Composer.
 
-$ composer require Lulu/db
+    $ composer require Lulu/db
 
 ## Config
 ```
@@ -38,26 +38,19 @@ $config = [
 ];
 ```
 
-## Dbinterface
+## Basic Usage
 
-- public function query($sql);     
-- public function getAll($sql);
-- public function getRow($sql);      
-- public function getCol($sql);
-- public function getMap($sql);      
-- public function getOne($sql);
-- public function close();
-
-## Before USE
     include("../vendor/autoload.php");
-
-## USE
     $db = new Lulu\db\db($config);
     $sql = "select * from million WHERE userId= 999999";
     $res = $db->getRow($sql);
     $sql = "select login,truename from million where userId>10";
     $res = $db->getAll($sql);
 
+## Documentation
+- Usages
+- Details
+
 ## License
 
-本系统采用 MIT 许可协议(MIT)
+DBDriver is licensed under the MIT License
