@@ -1,5 +1,6 @@
 {
     "name": "lulu/db-driver",
+    "version": "1.0",
     "description": "dev",
     "type": "library",
     "license": "MIT",
@@ -9,7 +10,7 @@
             "email": "1912317621@qq.com"
         }
     ],
-    "version": "1.0",
+    
     "require": {
         "php" : ">=5.4",
         "ext-mbstring" : "*",
