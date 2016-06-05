@@ -28,7 +28,7 @@ class db implements Dbinterface{
         $res = $this->_pdo->query($sql);
         $timeend=microtime(TRUE);
         //日志
-        $this->querylog($timeend-$timestart,$sql);
+        //$this->querylog($timeend-$timestart,$sql);
         return  $res;
     }
     private function querylog(
