@@ -10,7 +10,7 @@
             "email": "1912317621@qq.com"
         }
     ],
-    
+    "minimum-stability": "dev",
     "require": {
         "php" : ">=5.4",
         "ext-mbstring" : "*",
@@ -21,4 +21,5 @@
             "Lulu\\": "src"
         }
     }
+    
 }
