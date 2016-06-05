@@ -23,30 +23,29 @@ $config = [
 ];
 $db = new Lulu\db\db($config);
 
-$sql = "select cr from user WHERE userId=11";
+$sql = "select * from user WHERE userId<3";
 $res = $db->getAll($sql);
 echo "<pre>";
 
 
-
-$sql = "select login from user WHERE userId= 1";
+$sql = "select * from user ";
 $res = $db->getRow($sql);
 echo "<pre>";
 
 
 
-$sql = "select createA from user where userId>10";
+
+$sql = "select login from user ";
 $res = $db->getCol($sql);
 
 
 
-$sql = "select login,gende from user where userId>10";
+$sql = "select login,password from user ";
 $res = $db->getMap($sql);
+print_r($res);
 
-
-$sql = "select loin from user where userId=13 ";
+$sql = "select truename from user where userId=1 ";
 $res = $db->getOne($sql);
-var_dump($res);
 print_r($res);
 /*
 //usleep(1000);

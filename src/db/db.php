@@ -107,8 +107,10 @@ class db implements Dbinterface{
             $map=array();
             $res->setFetchMode(\PDO::FETCH_NUM);
             $res=$res->fetchAll();
-            for($i=0;$i<count($res,0);$i++)
-                $map[$res[$i][0]]=$res[$i][1];
+            if(count($res[0])>=2) {
+                for($i=0;$i<count($res,0);$i++)
+                    $map[$res[$i][0]]=$res[$i][1];
+            }
         }
 
         return $map;
