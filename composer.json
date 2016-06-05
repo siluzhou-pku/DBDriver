@@ -1,6 +1,6 @@
 {
     "name": "lulu/db-driver",
-    "version":"1.0.0",
+    "version":"1.0.1",
     "description": "DBDriver",
     "type": "library",
     "keywords":["database","pdo"],
@@ -24,7 +24,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "1.0.1-dev"
         }
     }
     
