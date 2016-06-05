@@ -48,8 +48,8 @@ $config = [
     $res = $db->getAll($sql);
 
 ## Documentation
-- Usages
-- Details
+- [Usages](https://github.com/siluzhou/DBDriver/blob/master/docs/01-usage.md)
+- [Details](https://github.com/siluzhou/DBDriver/blob/master/docs/02-details.md)
 
 ## License
 
