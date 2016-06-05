@@ -9,11 +9,9 @@
             "email": "1912317621@qq.com"
         }
     ],
+    "version": "1.0",
     "require": {
         "php" : ">=5.4",
-
-
-
         "ext-mbstring" : "*",
         "monolog/monolog": "~1.7"
     },
