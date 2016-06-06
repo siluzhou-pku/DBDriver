@@ -47,6 +47,7 @@ print_r($res);
 $sql = "select truename from user where userId=1 ";
 $res = $db->getOne($sql);
 print_r($res);
+
 /*
 //usleep(1000);
 

@@ -11,8 +11,9 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 class db implements Dbinterface{
-
-    private $_config  = array();
+    /*
+     */
+    private $_config  = array();    //入口参数
     private $_pdo = null;
     private $log=null;
     public function __construct($config = array()){
