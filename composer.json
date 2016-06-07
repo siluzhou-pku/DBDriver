@@ -1,5 +1,5 @@
 {
-    "name": "lulu/db-driver",
+    "name": "Lulu/DBDriver",
     "version":"1.0.0",
     "description": "DBDriver",
     "type": "library",
@@ -15,8 +15,7 @@
     "require": {
         "php" : ">=5.4",
         "ext-mbstring" : "*",
-        "monolog/monolog": "~1.7",
-        "phpunit/phpunit": "4.4.4"
+        "monolog/monolog": "~1.7"
     },
     "autoload":{
         "psr-4":{

@@ -21,7 +21,7 @@ $config = [
     'quiet'         => 0,                   //安静模式 生产环境的
     'slowquery'     => 1,                   //对慢查询记录
 ];
-$db = new Lulu\db\db($config);
+$db = new Lulu\DBDriver\Db($config);
 
 $sql = "select * from user WHERE userId<3";
 $res = $db->getAll($sql);
@@ -37,7 +37,7 @@ echo "<pre>";
 
 $sql = "select login from user ";
 $res = $db->getCol($sql);
-
+print_r($res);
 
 
 $sql = "select login,password from user ";

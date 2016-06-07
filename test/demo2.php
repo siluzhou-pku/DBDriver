@@ -63,9 +63,9 @@ sort int(11) NOT NULL DEFAULT 0,
 des VARCHAR(128) DEFAULT NULL
 )";
 
-$db = new Lulu\db\db($config);
+$db = new Lulu\DBDriver\Db($config);
 $db->query($sql2);
-$len=[8,16,20,11,10,8,1,8,8,28,8,3,8];
+/*$len=[8,16,20,11,10,8,1,8,8,28,8,3,8];
 $type=['c','c','c','i','c','i','i','c','c','c','c','i','c'];
 $colname=['login','password','email','mobile','trueName','birthday','gender','signer','zone','addr','gravatar','height','des'];
 $timestart=microtime(TRUE);
@@ -95,4 +95,4 @@ for($i=0; $i<1000000; $i++) {
 }
 $timeend=microtime(TRUE);
 echo $timestart." ".$timeend." ".$timestart-$timeend;
-$db->close();
+$db->close();*/
