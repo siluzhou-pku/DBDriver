@@ -63,7 +63,7 @@ sort int(11) NOT NULL DEFAULT 0,
 des VARCHAR(128) DEFAULT NULL
 )";
 
-$db = new Lulu\DBDriver\Db($config);
+$db = new Lulu\DbDriver\Db($config);
 $db->query($sql2);
 /*$len=[8,16,20,11,10,8,1,8,8,28,8,3,8];
 $type=['c','c','c','i','c','i','i','c','c','c','c','i','c'];

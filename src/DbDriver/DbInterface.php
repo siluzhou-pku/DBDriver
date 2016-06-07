@@ -6,7 +6,7 @@
  * @Date: 2016/5/24
  * @Time: 15:26
  */
-namespace Lulu\DBDriver;
+namespace Lulu\DbDriver;
 
 // 声明接口
 interface DbInterface

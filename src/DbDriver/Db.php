@@ -9,7 +9,7 @@
  * @Time: 15:27
  */
 
-namespace Lulu\DBDriver;
+namespace Lulu\DbDriver;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
