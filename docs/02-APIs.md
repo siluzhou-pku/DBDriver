@@ -8,28 +8,42 @@
 Dbdriver Interface
 
 - author: Silu Zhou <siluzhou_pku@163.com>
-- version: 1.0
+- version: 3.3
 
-*Located in /DBDriver/DbInterface.php (line 12)*
+*Located in /DBDriver/DbInterface.php (line 17)*
 
 ### Method Summary
 
+	
+- void beginTransaction ()
 - void close ()
-- void getAll ( $sql)
-- void getCol ( $sql)
-- void getMap ( $sql)
-- void getOne ( $sql)
-- void getRow ( $sql)
-- void query ( $sql)
+- void commit ()
+- boolean/obj delete (string $table, string $where)
+- void getAll ( $sql,  $field)
+- void getCol (string $sql)
+- void getMap (string $sql)
+- void getOne (string $sql)
+- void getRow (string $sql)
+- boolean/obj insert (string $table, array $values)
+- void lastInsert ()
+- void queryCount ()
+- void rollBack ()
+- void update (string $table, array $values, string $where)
 
 ### Methods
 
 
-Strict Standards: Only variables should be passed by reference in E:\WWW\PhpDoc\phpDocumentor\Smarty-2.6.0\libs\Smarty_Compiler.class.php on line 712
 
-Strict Standards: Only variables should be passed by reference in E:\WWW\PhpDoc\phpDocumentor\Smarty-2.6.0\libs\Smarty_Compiler.class.php on line 712
+#### beginTransaction (line 22)
 
-#### close (line 45)
+begin transaction
+
+   - access: public
+
+void beginTransaction ()
+
+
+#### close (line 96)
 
 close database
 
@@ -37,17 +51,43 @@ close database
 
 void close ()
 
-#### getAll (line 23)
+
+#### commit (line 26)
+
+commit transaction
+
+- access: public
+
+void commit ()
+
+
+
+#### delete (line 62)
+
+delete database
+
+   - access: public
+
+boolean/obj delete (string $table, string $where)
+
+  -  string $table	
+  -  string $where	
+
+
+
+#### getAll (line 66)
 
 execute SQL statements
 
 - access: public
 
-void getAll ( $sql)
+ void getAll ( $sql,  $field)
 
-- $sql	
+   - $sql	
+   - $field	
 
-#### getCol (line 32)
+
+#### getCol (line 79)
 
 execute SQL statements
 
@@ -58,7 +98,7 @@ void getCol ( $sql)
 - $sql	
 
 
-#### getMap (line 36)
+#### getMap (line 85)
 
 execute SQL statements
 
@@ -68,7 +108,7 @@ void getMap ( $sql)
 
 - $sql	
 
-#### getOne (line 40)
+#### getOne (line 91)
 
 execute SQL statements
 
@@ -78,7 +118,7 @@ void getOne ( $sql)
 
 - $sql	
 
-#### getRow (line 28)
+#### getRow (line 73)
 
 execute SQL statements
 
@@ -88,12 +128,52 @@ void getRow ( $sql)
 
 - $sql	
 
-#### query (line 19)
 
-execute SQL statements
+#### insert (line 53)
 
-- access: public
+insert database
 
-void query ( $sql)
+ -   access: public
 
-- $sql	
+boolean/obj insert (string $table, array $values)
+
+  -  string $table	
+  -  array $values	
+
+
+
+#### lastInsert (line 38)
+
+return the last inserted ID
+
+   - access: public
+
+void lastInsert ()
+#### queryCount (line 34)
+
+return times of accessing database
+
+   - access: public
+
+void queryCount ()
+#### rollBack (line 30)
+
+rollback transaction
+
+   - access: public
+
+void rollBack ()
+
+
+#### update (line 46)
+
+update database
+
+  -  access: public
+
+void update (string $table, array $values, string $where)
+
+  -  string $table	
+  -  array $values	
+  -  string $where	
+

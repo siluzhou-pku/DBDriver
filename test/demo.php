@@ -23,38 +23,61 @@ $config = [
 ];
 $db = new Lulu\DbDriver\Db($config);
 
-$sql = "select * from user WHERE userId<3";
-$res = $db->getAll($sql);
+
+
+
+$sql = "select * from user";
+$res = $db->getAll($sql,'userId');
 echo "<pre>";
 
 
+
+
+$res = $db->insert('user',[
+    'login'     => 'irones',
+    'nickName'  => 'x7x658',
+    'password'  => '12345678',
+    'email'     => 'shampeak@sina.com',
+    'mobile'    => '13811069199',
+]);
+
+
+
+
+echo $db->queryCount();
+echo "   ".$db->lastInsert();
+/*
 $sql = "select * from user ";
 $res = $db->getRow($sql);
 echo "<pre>";
-
-
+$res = $db->update('user',[
+    'login'     => '1ew234',
+    'nickName'  => 'dwewr',
+    'password'  => '12345678',
+    'email'     => 'shampeak@sina.com',
+    'mobile'    => '13811069199',
+],'userId = 1');
+$table="user";
+$where="userId=4";
+$res=$db->delete($table,$where);
+echo "<pre>";
 
 
 $sql = "select login from user ";
 $res = $db->getCol($sql);
-print_r($res);
+//print_r($res);
 
 
 $sql = "select login,password from user ";
 $res = $db->getMap($sql);
-print_r($res);
+//print_r($res);
 
 $sql = "select truename from user where userId=1 ";
 $res = $db->getOne($sql);
-print_r($res);
+//print_r($res);
 
-/*
 //usleep(1000);
 
-//$sql = "select * from log where actionId<3";
-//$res = $db->getAll($sql);
-//echo "<pre>";
-//print_r($res);
 
 
 

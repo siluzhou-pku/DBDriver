@@ -10,8 +10,6 @@
  */
 
 namespace Lulu\DbDriver;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 /**
  * Db
@@ -35,7 +33,17 @@ class Db implements DbInterface{
     private $_pdo = null;
 
     /**
+     * times of accessing database(only write)
+     * @access private
+     * @var int
+     */
+    private $_querycount=0;
+
+
+    /**
      * constructor  {@link $_config}
+     *
+     * @param array $config
      */
     public function __construct($config = array()){
         $this->_config = $config;
@@ -52,9 +60,10 @@ class Db implements DbInterface{
         if ($this->_pdo==null) {
             $this->connect();
         }
-        $timestart=microtime(TRUE);
         $res = $this->_pdo->query($sql);
-        $timeend=microtime(TRUE);
+        //$timestart=microtime(TRUE);
+
+        //$timeend=microtime(TRUE);
         //日志
         //$this->querylog($timeend-$timestart,$sql);
         return  $res;
@@ -90,17 +99,140 @@ class Db implements DbInterface{
     }
 
 
+
     /**
-     * execute SQL statements
-     * @access public
-     * @param string $sql
-     * @return object(PDOStatement)
+     * begin transaction
      */
-    public function query($sql = '')
+    public function beginTransaction()
     {
-        echo "1";
-        var_dump($this->doSQL($sql));
-        return $this->doSQL($sql);
+        if($this->_pdo==null)
+            $this->connect();
+        return $this->_pdo->beginTransaction();
+
+    }
+    /**
+     * commit transaction
+     */
+    public function commit()
+    {
+        if($this->_pdo==null)
+            $this->connect();
+        return $this->_pdo->commit();
+
+    }
+
+
+    /**
+     * rollback transaction
+     */
+    public function rollBack()
+    {
+        if($this->_pdo==null)
+            $this->connect();
+        return $this->_pdo->rollBack();
+    }
+
+    /**
+     * return times of accessing database
+     */
+    public function queryCount()
+    {
+        return $this->_querycount;
+
+    }
+    
+    /**
+     * return the last inserted ID
+     */
+    public function lastInsert()
+    {
+        if($this->_pdo===null)
+            $res=null;
+        else
+            $res=$this->_pdo->lastInsertId();
+        return   $res;
+    }
+
+    /**
+     * execute SQL statements， update data
+     * @access public
+     * @param string $table
+     * @param array $values
+     * @param string $where
+     * @return boolean/obj
+     */
+    public function update($table, $values,$where)
+    {
+
+        $count=count($values);
+        $field_a=array_keys($values);
+        $value_a=array_values($values);
+        $value="";
+        if($count==0){
+            $res=false;
+        } else{
+            $value.=$field_a[0]." = '".$value_a[0]."'";
+            for($i=1;$i<$count;$i++)
+            {
+                $value.=",".$field_a[0]." = '".$value_a[0]."'";
+            }
+        }
+        $sql="UPDATE ".$table." SET "."$value"." WHERE ".$where;
+        $res=$this->doSQL($sql);
+        if($res!=false)
+            $this->_querycount++;
+        return $res;
+    }
+
+    /**
+     * execute SQL statements， delete data
+     * @access public
+     * @param string $table
+     * @param array $values
+     * @return boolean/obj
+     */
+    public function insert($table, $values)
+    {
+
+        $count=count($values);
+        $field_a=array_keys($values);
+        $value_a=array_values($values);
+        $field="";
+        $value="";
+        if($count==0){
+            $res=false;
+        } else{
+            $field.=$field_a[0];
+            $value.="'".$value_a[0]."'";
+            for($i=1;$i<$count;$i++)
+            {
+                $field.=",".$field_a[$i];
+                $value.=",'".$value_a[$i]."'";
+            }
+        }
+        $sql="INSERT INTO ".$table." ( ".$field." ) VALUES (".$value.")";
+        $res=$this->doSQL($sql);
+        if($res!=false)
+            $this->_querycount++;
+        return $res;
+
+    }
+
+    /**
+     * execute SQL statements， delete data
+     * @access public
+     * @param string $table
+     * @param string $where
+     * @return boolean/obj
+     */
+    public function delete($table,$where)
+    {
+        $sql="DELETE from ".$table." WHERE ".$where;
+        $res=$this->doSQL($sql);
+        if($res!=false)
+            $this->_querycount++;
+        return $res;
+
     }
 
 
@@ -110,16 +242,24 @@ class Db implements DbInterface{
      * @param string $sql
      * @return array
      */
-    public function getAll($sql = '')
+    public function getAll($sql = '',$field)
     {
         $res = $this->doSQL($sql);
+        $shift=array();
         if($res===false) {
             $all=array();
         } else {
             $res->setFetchMode(\PDO::FETCH_ASSOC);
             $all = $res->fetchAll();
+            $count=count($all,0);
+            $keys=array();
+            for($i=0;$i<$count;$i++)
+                $keys[] = $all[$i][$field];
+
+            for($i=0;$i<$count;$i++)
+                $shift[$keys[$i]]=$all[$i];
         }
-        return $all;
+        return $shift;
     }
     /**
      * execute SQL statements， get first row of all data

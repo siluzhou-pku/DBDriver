@@ -8,34 +8,85 @@
  */
 namespace Lulu\DbDriver;
 
-// 声明接口
+/**
+ * DbInterface
+ *
+ * Interface Declaration
+ *
+ */
 interface DbInterface
 {
+    /**
+     * begin transaction
+     */
+    public function beginTransaction();
+    /**
+     * commit transaction
+     */
+    public function commit();
+    /**
+     * rollback transaction
+     */
+    public function rollBack();
+    /**
+     * return times of accessing database
+     */
+    public function queryCount();
+    /**
+     * return the last inserted ID
+     */
+    public function lastInsert();
 
+    /**
+     * update database
+     * @param string $table
+     * @param array $values
+     * @param string $where
+     */
+    public function update($table, $values,$where);
+    /**
+     * insert database
+     * @param string $table
+     * @param array $values
+     * @return boolean/obj
+     */
+    public function insert($table, $values);
 
+    /**
+     * delete database
+     *
+     * @param string $table
+     * @param string $where
+     * @return boolean/obj
+     */
+    public function delete($table,$where);
     /**
     *execute SQL statements
     */
-    public function query($sql);
-    /**
-    *execute SQL statements
-    */
-    public function getAll($sql);
+    public function getAll($sql,$field);
 
     /**
      *execute SQL statements
+     *
+     * @param string $sql
      */
     public function getRow($sql);
     /**
      *execute SQL statements
+     *
+     * @param string $sql
      */
     public function getCol($sql);
     /**
      *execute SQL statements
+     *
+     * @param string $sql
      */
     public function getMap($sql);
     /**
      *execute SQL statements
+     *
+     * @param string $sql
      */
     public function getOne($sql);
 
