@@ -6,7 +6,7 @@
  * @Date: 2016/5/24
  * @Time: 15:26
  */
-namespace Lulu\dbdriver;
+namespace Lulu\DbDriver;
 
 /**
  * DbInterface

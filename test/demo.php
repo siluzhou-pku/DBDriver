@@ -21,7 +21,7 @@ $config = [
     'quiet'         => 0,                   //安静模式 生产环境的
     'slowquery'     => 1,                   //对慢查询记录
 ];
-$db = new Lulu\dbdriver\Db($config);
+$db = new Lulu\DbDriver\Db($config);
 
 
 
