@@ -10,6 +10,7 @@ include("../vendor/autoload.php");
 use Monolog\Logger;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\StreamHandler;
+echo "<pre>";
 $config = [
     'hostname'      => '127.0.0.1',         //服务器地址
     'port'          => '3306',              //端口
@@ -23,18 +24,39 @@ $config = [
 ];
 $db = new Lulu\DbDriver\Db($config);
 
+$sql = "select login,password from million WHERE userId<10";
+$res = $db->getMap($sql,'userId');
 
-
-
-$sql = "select * from user";
-$res = $db->getAll($sql,'userId');
+//print_r($res);
+$i=0;
 echo "<pre>";
+$cou=count($res);
+$time1=microtime(TRUE);
+for($i=0;$i<$cou;$i++)
+{
+    //$a1=$res[$i];
+    //$res[$i]=$res[$i]." ";
+}
+$time2=microtime(TRUE);
+while(list($key,$value)=each($res))
+{
+   // $a2=$res[$key];
+ $res[$key]=$res[$key]." ";
+}
 
+$time3=microtime(TRUE);
+foreach($res as $key=>$value)
+{
+//    $a3=$res[$key];
+  $res[$key]=$value." ";
+}
+$time4=microtime(TRUE);
 
+echo $time2-$time1."<br />";
+echo $time3-$time2."<br />";
+echo $time4-$time3."<br />";
 
-$sql="w2y197e987";
-
-$res = $db->insert('user',[
+/*$res = $db->insert('user',[
     'select'     => 'select',
     'nickName'  => 'x7x658',
     'password'  => '12345678',
