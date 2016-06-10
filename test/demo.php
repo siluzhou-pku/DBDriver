@@ -32,14 +32,16 @@ echo "<pre>";
 
 
 
+$sql="w2y197e987";
+$sql=saddslashes($sql);
 
-$res = $db->insert('user',[
+/*$res = $db->insert('user',[
     'login'     => 'irones',
     'nickName'  => 'x7x658',
     'password'  => '12345678',
     'email'     => 'shampeak@sina.com',
     'mobile'    => '13811069199',
-]);
+]);*/
 
 
 

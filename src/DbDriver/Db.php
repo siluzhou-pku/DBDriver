@@ -61,6 +61,7 @@ class Db implements DbInterface{
             $this->connect();
         }
         $res = $this->_pdo->query($sql);
+        $this->_querycount++;
         //$timestart=microtime(TRUE);
 
         //$timeend=microtime(TRUE);
@@ -179,8 +180,6 @@ class Db implements DbInterface{
         }
         $sql="UPDATE ".$table." SET "."$value"." WHERE ".$where;
         $res=$this->doSQL($sql);
-        if($res!=false)
-            $this->_querycount++;
         return $res;
     }
 
@@ -212,8 +211,6 @@ class Db implements DbInterface{
         }
         $sql="INSERT INTO ".$table." ( ".$field." ) VALUES (".$value.")";
         $res=$this->doSQL($sql);
-        if($res!=false)
-            $this->_querycount++;
         return $res;
 
     }
@@ -229,8 +226,6 @@ class Db implements DbInterface{
     {
         $sql="DELETE from ".$table." WHERE ".$where;
         $res=$this->doSQL($sql);
-        if($res!=false)
-            $this->_querycount++;
         return $res;
 
     }
