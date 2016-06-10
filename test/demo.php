@@ -33,18 +33,23 @@ echo "<pre>";
 
 
 $sql="w2y197e987";
-$sql=saddslashes($sql);
 
-/*$res = $db->insert('user',[
-    'login'     => 'irones',
+$res = $db->insert('user',[
+    'select'     => 'select',
     'nickName'  => 'x7x658',
     'password'  => '12345678',
     'email'     => 'shampeak@sina.com',
     'mobile'    => '13811069199',
-]);*/
+]);
 
 
-
+$res = $db->update('user',[
+    'select'     => '1ew234',
+    'nickName'  => 'dwewr',
+    'password'  => '12345678',
+    'email'     => 'shampeak@sina.com',
+    'mobile'    => '13811069199',
+],'userId = 38');
 
 echo $db->queryCount();
 echo "   ".$db->lastInsert();
@@ -52,13 +57,7 @@ echo "   ".$db->lastInsert();
 $sql = "select * from user ";
 $res = $db->getRow($sql);
 echo "<pre>";
-$res = $db->update('user',[
-    'login'     => '1ew234',
-    'nickName'  => 'dwewr',
-    'password'  => '12345678',
-    'email'     => 'shampeak@sina.com',
-    'mobile'    => '13811069199',
-],'userId = 1');
+
 $table="user";
 $where="userId=4";
 $res=$db->delete($table,$where);

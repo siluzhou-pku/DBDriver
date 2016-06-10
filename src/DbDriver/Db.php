@@ -99,8 +99,6 @@ class Db implements DbInterface{
         return true;
     }
 
-
-
     /**
      * begin transaction
      */
@@ -172,13 +170,13 @@ class Db implements DbInterface{
         if($count==0){
             $res=false;
         } else{
-            $value.=$field_a[0]." = '".$value_a[0]."'";
+            $value.="`".$field_a[0]."` = '".$value_a[0]."'";
             for($i=1;$i<$count;$i++)
             {
-                $value.=",".$field_a[0]." = '".$value_a[0]."'";
+                $value.=", `".$field_a[0]."` = '".$value_a[0]."'";
             }
         }
-        $sql="UPDATE ".$table." SET "."$value"." WHERE ".$where;
+        $sql="UPDATE `".$table."` SET "."$value"." WHERE ".$where;
         $res=$this->doSQL($sql);
         return $res;
     }
@@ -201,15 +199,15 @@ class Db implements DbInterface{
         if($count==0){
             $res=false;
         } else{
-            $field.=$field_a[0];
+            $field.="`".$field_a[0]."`";
             $value.="'".$value_a[0]."'";
             for($i=1;$i<$count;$i++)
             {
-                $field.=",".$field_a[$i];
+                $field.=",`".$field_a[$i]."`";
                 $value.=",'".$value_a[$i]."'";
             }
         }
-        $sql="INSERT INTO ".$table." ( ".$field." ) VALUES (".$value.")";
+        $sql="INSERT INTO `".$table."` ( ".$field." ) VALUES (".$value.")";
         $res=$this->doSQL($sql);
         return $res;
 
@@ -224,7 +222,7 @@ class Db implements DbInterface{
      */
     public function delete($table,$where)
     {
-        $sql="DELETE from ".$table." WHERE ".$where;
+        $sql="DELETE from `".$table."` WHERE ".$where;
         $res=$this->doSQL($sql);
         return $res;
 
