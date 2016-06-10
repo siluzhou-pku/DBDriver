@@ -21,40 +21,64 @@ $config = [
     'quiet'         => 0,                   //安静模式 生产环境的
     'slowquery'     => 1,                   //对慢查询记录
 ];
-$db = new Lulu\db\db($config);
+$db = new Lulu\DbDriver\Db($config);
 
-$sql = "select * from user WHERE userId<3";
-$res = $db->getAll($sql);
+
+
+
+$sql = "select * from user";
+$res = $db->getAll($sql,'userId');
 echo "<pre>";
 
 
+
+$sql="w2y197e987";
+
+$res = $db->insert('user',[
+    'select'     => 'select',
+    'nickName'  => 'x7x658',
+    'password'  => '12345678',
+    'email'     => 'shampeak@sina.com',
+    'mobile'    => '13811069199',
+]);
+
+
+$res = $db->update('user',[
+    'select'     => '1ew234',
+    'nickName'  => 'dwewr',
+    'password'  => '12345678',
+    'email'     => 'shampeak@sina.com',
+    'mobile'    => '13811069199',
+],'userId = 38');
+
+echo $db->queryCount();
+echo "   ".$db->lastInsert();
+/*
 $sql = "select * from user ";
 $res = $db->getRow($sql);
 echo "<pre>";
 
-
+$table="user";
+$where="userId=4";
+$res=$db->delete($table,$where);
+echo "<pre>";
 
 
 $sql = "select login from user ";
 $res = $db->getCol($sql);
-
+//print_r($res);
 
 
 $sql = "select login,password from user ";
 $res = $db->getMap($sql);
-print_r($res);
+//print_r($res);
 
 $sql = "select truename from user where userId=1 ";
 $res = $db->getOne($sql);
-print_r($res);
+//print_r($res);
 
-/*
 //usleep(1000);
 
-//$sql = "select * from log where actionId<3";
-//$res = $db->getAll($sql);
-//echo "<pre>";
-//print_r($res);
 
 
 

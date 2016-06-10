@@ -49,7 +49,8 @@ $config = [
 
 ## Documentation
 - [Usages](https://github.com/siluzhou/DBDriver/blob/master/docs/01-usage.md)
-- [Details](https://github.com/siluzhou/DBDriver/blob/master/docs/02-details.md)
+- [APIs]( https://github.com/siluzhou/DBDriver/blob/master/docs/02-APIs.md )
+- [Details](https://github.com/siluzhou/DBDriver/blob/master/docs/03-Details.md)
 
 ## License
 

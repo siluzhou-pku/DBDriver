@@ -6,6 +6,7 @@
  * Time: 22:20
  */
 
+
 class DBTest extends PHPUnit_Framework_TestCase
 {
     private $config = [
@@ -21,7 +22,7 @@ class DBTest extends PHPUnit_Framework_TestCase
     ];
     public function testGetOne()
     {
-        $db=new Lulu\db\db($this->config);
+        $db=new Db($this->config);
         $sql="select truename from user where userId=1 ";
         $this->assertEquals("4324", $db->getOne($sql));
 

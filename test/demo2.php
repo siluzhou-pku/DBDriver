@@ -63,7 +63,7 @@ sort int(11) NOT NULL DEFAULT 0,
 des VARCHAR(128) DEFAULT NULL
 )";
 
-$db = new Lulu\db\db($config);
+$db = new Lulu\DbDriver\Db($config);
 $db->query($sql2);
 $len=[8,16,20,11,10,8,1,8,8,28,8,3,8];
 $type=['c','c','c','i','c','i','i','c','c','c','c','i','c'];
@@ -71,7 +71,9 @@ $colname=['login','password','email','mobile','trueName','birthday','gender','si
 $timestart=microtime(TRUE);
 $tablename="million";
 $t_cou=count($type);
-for($i=0; $i<1000000; $i++) {
+$count=0;
+$db->beginTransaction();
+for($i=0; $i<100; $i++) {
     $sql='';
     $sql.="INSERT INTO ".$tablename." (";
     $sql.=$colname[0];
@@ -92,7 +94,22 @@ for($i=0; $i<1000000; $i++) {
     }
     $sql.=")";
     $db->query($sql);
+    $count++;
 }
+if($count==123)
+{
+    echo "commit";
+    $db->commit();
+}
+
+
+else
+{
+    echo "rollback";
+    $db->rollBack();
+}
+
+
 $timeend=microtime(TRUE);
 echo $timestart." ".$timeend." ".$timestart-$timeend;
 $db->close();
