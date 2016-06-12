@@ -27,7 +27,7 @@ $db = new Lulu\DbDriver\Db($config);
 $sql = "select login,password from million WHERE userId<10";
 $res = $db->getMap($sql,'userId');
 
-//print_r($res);
+/*//print_r($res);
 $i=0;
 echo "<pre>";
 $cou=count($res);
@@ -55,23 +55,26 @@ $time4=microtime(TRUE);
 echo $time2-$time1."<br />";
 echo $time3-$time2."<br />";
 echo $time4-$time3."<br />";
-
-/*$res = $db->insert('user',[
-    'select'     => 'select',
-    'nickName'  => 'x7x658',
-    'password'  => '12345678',
-    'email'     => 'shampeak@sina.com',
-    'mobile'    => '13811069199',
-]);
-
+*/
 
 $res = $db->update('user',[
-    'select'     => '1ew234',
+    'login'     => '1ew234',
     'nickName'  => 'dwewr',
     'password'  => '12345678',
     'email'     => 'shampeak@sina.com',
     'mobile'    => '13811069199',
 ],'userId = 38');
+
+$res = $db->insert('user',[
+    'login'     => 'select',
+    'nickName'  => 'x7x\658',
+    'password'  => '12345678',
+    'email'     => 'sha"m"peak@sina.com',
+    'mobile'    => '13811069199',
+]);
+
+
+
 
 echo $db->queryCount();
 echo "   ".$db->lastInsert();

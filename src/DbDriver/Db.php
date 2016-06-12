@@ -163,6 +163,9 @@ class Db implements DbInterface{
     public function update($table, $values,$where)
     {
 
+        $table=$this->saddslashes($table);
+        $values=$this->saddslashes($values);
+        $where=$this->saddslashes($where);
         $count=count($values);
         $field_a=array_keys($values);
         $value_a=array_values($values);
@@ -191,6 +194,8 @@ class Db implements DbInterface{
     public function insert($table, $values)
     {
 
+        $table=$this->saddslashes($table);
+        $values=$this->saddslashes($values);
         $count=count($values);
         $field_a=array_keys($values);
         $value_a=array_values($values);
@@ -222,6 +227,8 @@ class Db implements DbInterface{
      */
     public function delete($table,$where)
     {
+        $table=$this->saddslashes($table);
+        $where=$this->saddslashes($where);
         $sql="DELETE from `".$table."` WHERE ".$where;
         $res=$this->doSQL($sql);
         return $res;
@@ -306,7 +313,7 @@ class Db implements DbInterface{
             $map=array();
             $res->setFetchMode(\PDO::FETCH_NUM);
             $res=$res->fetchAll();
-            print_r($res);
+            //print_r($res);
             if(count($res[0])>=2) {
                 $cou=count($res,0);
                 for($i=0;$i<$cou;$i++)
@@ -347,6 +354,22 @@ class Db implements DbInterface{
     {
         $this->_pdo = null;
         return true;
+    }
+    /**
+     * escaping the field values by using addslashes();
+     * @access public
+     * @param string/array $string
+     * @return string/array
+     */
+    public function saddslashes($string) {
+        if(is_array($string)) {
+            foreach($string as $key => $val) {
+                $string[$key] = addslashes($val);
+            }
+        } else {
+            $string = addslashes($string);
+        }
+        return $string;
     }
 }
 

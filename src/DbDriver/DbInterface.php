@@ -94,6 +94,13 @@ interface DbInterface
      *close database
      */
     public function close();
+
+    /**
+    * escaping the field values
+    * @param string/array $string
+    * @return string/array
+    */
+    public function saddslashes($string);
 }
 
 
