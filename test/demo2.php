@@ -113,3 +113,36 @@ else
 $timeend=microtime(TRUE);
 echo $timestart." ".$timeend." ".$timestart-$timeend;
 $db->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$table = ;;
+
+table('user')->row(1);
+table('user')->col(' age =123');
+table('user')->field('id,name')->limit(9)->wherer('banji = 203')->order('aget desc')->all();
+

@@ -341,7 +341,6 @@ class Db implements DbInterface{
             if($one===false)
                 $one=NULL;
         }
-
         return $one;
 
     }
