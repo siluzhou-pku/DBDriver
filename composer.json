@@ -1,5 +1,5 @@
 {
-    "name": "lulu/db-driver",
+    "name": "lulu/db",
     "version":"1.0.0",
     "description": "DBDriver",
     "type": "library",
