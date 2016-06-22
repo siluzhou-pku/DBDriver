@@ -7,9 +7,7 @@
  */
 header("Content-type: text/html; charset=utf-8");//解决中文显示乱码问题
 include("../vendor/autoload.php");
-use Monolog\Logger;
-use Monolog\Formatter\LineFormatter;
-use Monolog\Handler\StreamHandler;
+
 echo "<pre>";
 $config = [
     'hostname'      => '127.0.0.1',         //服务器地址
@@ -24,10 +22,36 @@ $config = [
 ];
 $db = new Lulu\Db\Db($config);
 
-$sql = "select login,password from million WHERE userId<10";
-$res = $db->getMap($sql,'userId');
 
-/*//print_r($res);
+
+
+$sql = "select * from user ";
+$res = $db->getAll($sql,'userId');
+print_r($res);
+
+/*$res = $db->insert('user',[
+    'login'     => 'select',
+    'nickName'  => 'x7x658',
+    'password'  => '12345678',
+    'email'     => 'shampeak@sina.com',
+    'mobile'    => '13811069199',
+]);*/
+
+//print_r($res);
+//$sql = "select login,passwrd from millio";
+//$res = $db->getMap($sql,'userId');*/
+/*$sql = "select truename from user where userId=1 ";
+$res = $db->getOne($sql);
+
+
+print_r($res);
+$sql = "select * from user ";
+$res = $db->getMap($sql);
+print_r($res);
+/*
+
+/*print_r($res);
+/*
 $i=0;
 echo "<pre>";
 $cou=count($res);
@@ -56,16 +80,16 @@ echo $time2-$time1."<br />";
 echo $time3-$time2."<br />";
 echo $time4-$time3."<br />";
 */
-
+/*
 $res = $db->update('user',[
-    'login'     => '1ew234',
-    'nickName'  => 'dwewr',
-    'password'  => '12345678',
+    'login'     => '1234',
+    'nickName'  => '1',
+    'password'  => '2',
     'email'     => 'shampeak@sina.com',
     'mobile'    => '13811069199',
-],'userId = 38');
-
-$res = $db->insert('user',[
+],'user = 3077');
+print_r($res);
+/*$res = $db->insert('user',[
     'login'     => 'select',
     'nickName'  => 'x7x\658',
     'password'  => '12345678',
@@ -79,8 +103,7 @@ $res = $db->insert('user',[
 echo $db->queryCount();
 echo "   ".$db->lastInsert();
 /*
-$sql = "select * from user ";
-$res = $db->getRow($sql);
+
 echo "<pre>";
 
 $table="user";
@@ -94,13 +117,10 @@ $res = $db->getCol($sql);
 //print_r($res);
 
 
-$sql = "select login,password from user ";
-$res = $db->getMap($sql);
+
 //print_r($res);
 
-$sql = "select truename from user where userId=1 ";
-$res = $db->getOne($sql);
-//print_r($res);
+
 
 //usleep(1000);
 

@@ -38,6 +38,11 @@ interface DbInterface
     public function lastInsert();
 
     /**
+     * operate database
+     * @param string $sql
+     */
+    public function query($sql);
+    /**
      * update database
      * @param string $table
      * @param array $values
@@ -96,11 +101,10 @@ interface DbInterface
     public function close();
 
     /**
-    * escaping the field values
-    * @param string/array $string
-    * @return string/array
-    */
-    public function saddslashes($string);
+     *return current version of class db
+     */
+    public function version();
+
 }
 
 

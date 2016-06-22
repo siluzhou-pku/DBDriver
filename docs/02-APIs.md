@@ -15,6 +15,7 @@ Dbdriver Interface
 ### Method Summary
 
 	
+	
 - void beginTransaction ()
 - void close ()
 - void commit ()
@@ -26,9 +27,12 @@ Dbdriver Interface
 - void getRow (string $sql)
 - boolean/obj insert (string $table, array $values)
 - void lastInsert ()
+- void query (string $sql)
 - void queryCount ()
 - void rollBack ()
 - void update (string $table, array $values, string $where)
+- void version ()
+
 
 ### Methods
 
@@ -43,7 +47,7 @@ begin transaction
 void beginTransaction ()
 
 
-#### close (line 96)
+#### close (line 101)
 
 close database
 
@@ -62,7 +66,7 @@ void commit ()
 
 
 
-#### delete (line 62)
+#### delete (line 67)
 
 delete database
 
@@ -75,7 +79,7 @@ boolean/obj delete (string $table, string $where)
 
 
 
-#### getAll (line 66)
+#### getAll (line 71)
 
 execute SQL statements
 
@@ -87,7 +91,7 @@ execute SQL statements
    - $field	
 
 
-#### getCol (line 79)
+#### getCol (line 84)
 
 execute SQL statements
 
@@ -98,7 +102,7 @@ void getCol ( $sql)
 - $sql	
 
 
-#### getMap (line 85)
+#### getMap (line 90)
 
 execute SQL statements
 
@@ -108,7 +112,7 @@ void getMap ( $sql)
 
 - $sql	
 
-#### getOne (line 91)
+#### getOne (line 96)
 
 execute SQL statements
 
@@ -118,7 +122,7 @@ void getOne ( $sql)
 
 - $sql	
 
-#### getRow (line 73)
+#### getRow (line 78)
 
 execute SQL statements
 
@@ -129,7 +133,7 @@ void getRow ( $sql)
 - $sql	
 
 
-#### insert (line 53)
+#### insert (line 58)
 
 insert database
 
@@ -149,6 +153,20 @@ return the last inserted ID
    - access: public
 
 void lastInsert ()
+
+
+
+#### query (line 44)
+
+operate database
+
+   - access: public
+
+void query (string $sql)
+
+   - string $sql	
+
+
 #### queryCount (line 34)
 
 return times of accessing database
@@ -165,7 +183,7 @@ rollback transaction
 void rollBack ()
 
 
-#### update (line 46)
+#### update (line 51)
 
 update database
 
@@ -177,3 +195,11 @@ void update (string $table, array $values, string $where)
   -  array $values	
   -  string $where	
 
+
+#### version (line 106)
+
+return current version of class db
+
+  -  access: public
+
+void version ()
