@@ -9,7 +9,7 @@
  * @Time: 15:27
  */
 
-namespace Lulu\DbDriver;
+namespace Lulu\Db;
 
 /**
  * Db

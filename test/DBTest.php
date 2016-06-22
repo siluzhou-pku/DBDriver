@@ -23,7 +23,7 @@ class DBTest extends PHPUnit_Framework_TestCase
     private $db;
     function setUp()
     {
-        $this->db=new Lulu\DbDriver\Db($this->config);
+        $this->db=new Lulu\Db\Db($this->config);
     }
     public function testGetOne()
     {

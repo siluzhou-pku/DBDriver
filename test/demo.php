@@ -22,7 +22,7 @@ $config = [
     'quiet'         => 0,                   //安静模式 生产环境的
     'slowquery'     => 1,                   //对慢查询记录
 ];
-$db = new Lulu\DbDriver\Db($config);
+$db = new Lulu\Db\Db($config);
 
 $sql = "select login,password from million WHERE userId<10";
 $res = $db->getMap($sql,'userId');
