@@ -11,7 +11,7 @@
             "email": "siluzhou_pku@163.com"
         }
     ],
-    "minimum-stability": "v1.0",
+    "minimum-stability": "dev",
     "require": {
         "php" : ">=5.4",
         "ext-mbstring" : "*",
