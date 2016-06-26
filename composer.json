@@ -1,6 +1,6 @@
 {
     "name": "lulu/db",
-    "version":"1.0.0",
+    "version":"v1.0",
     "description": "DBDriver",
     "type": "library",
     "keywords":["database","pdo"],
