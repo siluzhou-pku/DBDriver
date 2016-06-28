@@ -25,6 +25,9 @@ Install Lulu\db using Composer.
 
 ## Config
 ```
+
+
+
 $config = [
     'hostname'      => '127.0.0.1',         //服务器地址
     'port'          => '3306',              //端口
