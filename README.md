@@ -21,7 +21,7 @@ to use the library.
 
 Install Lulu\db using Composer.
 
-    $ composer require lulu/db-driver
+    $ composer require lulu/db
 
 ## Config
 ```
