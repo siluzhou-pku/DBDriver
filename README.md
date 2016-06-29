@@ -1,4 +1,4 @@
-# DBDriver V1.0
+# DBDriver dev
 DBDriver connects and manages database based on application programming interface (**API**) 
 
 ## Highlights
