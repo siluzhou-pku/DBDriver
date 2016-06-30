@@ -111,7 +111,6 @@ class Db implements DbInterface{
                 echo "error! ".$e->getMessage()."<br />";
                 echo "trace: "."<br />".$e->getTraceAsString()."<br />";
             }
-
         }
         $ET=microtime(true);
         //记录慢查询
@@ -462,7 +461,7 @@ class Db implements DbInterface{
      * @param string/array $string
      * @return string/array
      */
-    public function saddslashes($string) {
+    private function saddslashes($string) {
         if(is_array($string)) {
             foreach($string as $key => $val) {
                 $string[$key] = addslashes($val);
