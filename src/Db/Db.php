@@ -238,10 +238,6 @@ class Db implements DbInterface{
     public function update($table, $values,$where)
     {
 
-        $table=$this->saddslashes($table);
-        $values=$this->saddslashes($values);
-        $where=$this->saddslashes($where);
-
         $sql= "show columns from ".$table;
         $tablename=$this->getCol($sql);
         $sql="";
@@ -275,9 +271,6 @@ class Db implements DbInterface{
      */
     public function insert($table, $values)
     {
-
-        $table=$this->saddslashes($table);
-        $values=$this->saddslashes($values);
         $sql= "show columns from ".$table;
         $tablename=$this->getCol($sql);
         $sql1="";
@@ -314,8 +307,6 @@ class Db implements DbInterface{
      */
     public function delete($table,$where)
     {
-        $table=$this->saddslashes($table);
-        $where=$this->saddslashes($where);
         $sql="DELETE from `".$table."` WHERE ".$where;
         $res=$this->doSQL($sql);
         return $res;
@@ -455,22 +446,7 @@ class Db implements DbInterface{
         return true;
     }
 
-    /**
-     * escaping the field values by using addslashes();
-     * @access public
-     * @param string/array $string
-     * @return string/array
-     */
-    private function saddslashes($string) {
-        if(is_array($string)) {
-            foreach($string as $key => $val) {
-                $string[$key] = addslashes($val);
-            }
-        } else {
-            $string = addslashes($string);
-        }
-        return $string;
-    }
+
 
     /**
      * return the current version of class db;

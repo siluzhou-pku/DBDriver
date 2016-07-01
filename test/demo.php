@@ -28,7 +28,22 @@ $db = new Lulu\Db\Db($config);
 $sql = "select * from user ";
 $res = $db->getAll($sql,'userId');
 print_r($res);
-
+/**
+ * escaping the field values by using addslashes();
+ * @access public
+ * @param string/array $string
+ * @return string/array
+ */
+function saddslashes($string) {
+    if(is_array($string)) {
+        foreach($string as $key => $val) {
+            $string[$key] = addslashes($val);
+        }
+    } else {
+        $string = addslashes($string);
+    }
+    return $string;
+}
 /*$res = $db->insert('user',[
     'login'     => 'select',
     'nickName'  => 'x7x658',
