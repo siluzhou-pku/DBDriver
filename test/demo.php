@@ -53,8 +53,8 @@ function saddslashes($string) {
 ]);*/
 
 //print_r($res);
-//$sql = "select login,passwrd from millio";
-//$res = $db->getMap($sql,'userId');*/
+//$sql = "select login,password from million";
+//$res = $db->getMap($sql,'userId');
 /*$sql = "select truename from user where userId=1 ";
 $res = $db->getOne($sql);
 

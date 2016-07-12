@@ -108,8 +108,10 @@ class Db implements DbInterface{
         }catch(\PDOException $e) {
             //如果不是安静模式的话，抛出异常
             if(!$this->quiet){
-                echo "error! ".$e->getMessage()."<br />";
-                echo "trace: "."<br />".$e->getTraceAsString()."<br />";
+                echo "error sql: ".$e->getMessage()."<br />";
+                echo "error trace: "."<br />".$e->getTraceAsString()."<br />";
+                echo "error info: ";
+                print_r($this->_pdo->errorInfo());
             }
         }
         $ET=microtime(true);
@@ -152,6 +154,7 @@ class Db implements DbInterface{
         } catch( \PDOException $e) {
             if(!$this->quiet){
                 echo $e->getMessage();
+
             }
         }
         //判断是否为慢查询
